@@ -49,8 +49,13 @@
       // Create and render a Picker object for picking user Photos.
       function createPicker() {
         if (pickerApiLoaded && oauthToken) {
+		  var view2 = new google.picker.DocsView(google.picker.ViewId.DOCS).
+			  setOwnedByMe(false);
           var picker = new google.picker.PickerBuilder().
-              addView(google.picker.ViewId.DOCS).
+              //addView(google.picker.ViewId.DOCS).
+			  addView(view2).
+			  //addView(google.picker.ViewId.DOCUMENTS).
+			  //setOwnedByMe(false).
               setOAuthToken(oauthToken).
               setDeveloperKey(developerKey).
               setCallback(pickerCallback).
